@@ -1,0 +1,37 @@
+sudo dnf install python3-pip -y
+pip install numpy
+pip install matplotlib
+pip install sklearn
+nano linear_regression.py 
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Sample data
+X = np.array([1, 2, 3, 4, 5, 6]).reshape(-1, 1)
+y = np.array([2, 4, 5, 4, 5, 7])
+
+# Create model
+model = LinearRegression()
+
+# Train model
+model.fit(X, y)
+
+# Predict values
+y_pred = model.predict(X)
+
+# Print coefficients
+print("Slope:", model.coef_[0])
+print("Intercept:", model.intercept_)
+
+# Predict new value
+new_value = np.array([[7]])
+prediction = model.predict(new_value)
+
+print("Prediction for x=5:", prediction[0])
+
+ctrl+o enter ctrl+x
+
+python3 linear_regression.py
+
